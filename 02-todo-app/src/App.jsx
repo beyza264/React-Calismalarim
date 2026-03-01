@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import Inputt from './components/TodoInput';
 import './App.css'
-
+import  { useState } from 'react';
+import Lİsteleme from './components/TodoButon';
+import { useEffect } from 'react';
+  
 function App() {
-  const [count, setCount] = useState(0)
+  
+  const [Liste,SetListe]=useState(()=>{
+    const kayitliPlanlar=localStorage.getItem("planlar");
+    return kayitliPlanlar ? JSON.parse(kayitliPlanlar) : [];
+  });
+  
+  const ekleListe=(plan) =>{
+    SetListe([ ...Liste ,plan]);
+  }
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  const Silme=(index)=>{
+    const  yeniListe=Liste.filter((_,i)=>i!==index);
+    SetListe(yeniListe);
+
+  }
+
+  useEffect(()=>{
+    localStorage.setItem("planlar",JSON.stringify(Liste));
+  },[Liste]);
+
+  return(
+    
+   <div className='app-container'> <Inputt  onAdd={ekleListe} />
+   
+<div className='list'>
+      
+    {Liste.map((plan,index)=>(
+      <Lİsteleme key={index} text={plan}  onDelete={()=>Silme(index)} />
+    ))} 
+   </div> 
+    </div> 
+  );
 }
 
 export default App
