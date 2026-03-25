@@ -1,0 +1,25 @@
+$primary-color: #2563eb;
+$bg-color: #f8fafc;
+$text-color: #1e293b;
+
+body{
+  background-color: $bg-color;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.box{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 20px;
+
+  input,select,button{
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid white;
+  }
+  button{
+    background-color: $primary-color;
+    color: white;
+    cursor: pointer;
+  }
+}
