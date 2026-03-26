@@ -48,8 +48,6 @@ const filtreleme= user.filter(
     <h1>kullanıcı listesi</h1>
 
   <input type="text" placeholder="isim veya email ile ara" value={search} onChange={(e)=>setSearch(e.target.value)}  />
-    
- 
 
      { filtreleme.map((u)=> (
       <div key={u.id} style={{padding:"15px",marginBottom:"10px", border:"1px solid #ddd",borderRadius:"8px"}} >
@@ -63,8 +61,8 @@ const filtreleme= user.filter(
         
       </div>
      ) )}   
-     {filtreleme.length===0&& <p>kullanıcı yok </p>}
-</div>
+  {filtreleme.length === 0 ? <p>Kullanıcı yok</p> : null}</div>
+
  );
 }
 

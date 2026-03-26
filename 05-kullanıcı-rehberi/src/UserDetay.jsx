@@ -21,7 +21,6 @@ import axios from "axios";
    }
 },[id]);
 
-    
   useEffect(()=>{ 
  verigetir();
  },[ verigetir]);    
