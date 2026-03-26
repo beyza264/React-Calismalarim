@@ -21,7 +21,7 @@ function App() {
 
   return (
     <div style={{ padding: '20px' }}>
-      <h1 style={{ textAlign: 'center' }}>Fake Store App</h1>
+      <h1 style={{ textAlign: 'center' }}>axios ile apı çekme</h1>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))'}}>
         {products.map((product) => (
           <div key={product.id} style={{ border: '1px solid #ddd', padding: '15px', borderRadius: '10px', textAlign: 'center' }}>
