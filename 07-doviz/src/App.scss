@@ -23,3 +23,18 @@ body{
     cursor: pointer;
   }
 }
+.history{
+  margin-top: 30px;
+  max-width: 450px;
+  ul{
+    list-style: none;
+  }
+  li{
+    background-color: white;
+    border-left: 3px solid $primary-color;
+  }
+  h3{
+    border-bottom: 2px solid $primary-color;
+    padding-bottom: 5px;
+  }
+}

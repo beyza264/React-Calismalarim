@@ -3,7 +3,7 @@ import './App.scss';
 import axios from 'axios';
 function App() {
   const[miktar ,setMiktar]=useState("");
-   const[cevrilecekParaBirimi,setCevrilecekParaBirimi]=useState('USD');
+   const[cevrilecekParaBirimi,setCevrilecekParaBirimi]=useState('EUR');
    const[hangiparaolucak,setHangiparaolucak]=useState('TRY');
    const [kurlar ,setKurlar]=useState({});
    const[sonuc, setSonuc]=useState(0);
@@ -27,7 +27,7 @@ function App() {
     const sonucekranabasma= hesaplanan.toFixed(2);
       setSonuc(sonucekranabasma);
       const tarih=new Date().toLocaleString();
-      const yenikayit=`(${tarih}) : ${miktar} ${cevrilecekParaBirimi}=${sonucekranabasma}${hangiparaolucak}`;
+      const yenikayit=`${tarih} : ${miktar} ${cevrilecekParaBirimi}=${sonucekranabasma}${hangiparaolucak}`;
      setGecmis([yenikayit, ...gecmis]);
     console.log(`${miktar} ${cevrilecekParaBirimi}=${sonucekranabasma} ${hangiparaolucak}`);
   } else{
