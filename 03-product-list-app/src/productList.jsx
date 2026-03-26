@@ -71,7 +71,7 @@ function ProductList(){
         {filtreProdects.length > 0 ? (
           filtreProdects.map((product) => (
             <div key={product.id} className='product-card' >
-                <Link  to={`/items/${product.id}`} >
+                <Link  to={`/urunler/${product.id}`} >
                  <div className='image-container'>
                 <img src={product.image} alt={product.name} />
                 <span className={`stock-badge ${product.inStock ? 'in-stock' : 'out-of-stock'}`} >

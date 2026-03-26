@@ -12,16 +12,22 @@ import { useParams,Link } from "react-router-dom";
     );  
    }
  return (  
-    <div className="product-detail-container">
-      <Link to={"/"} style={{display:"block"}} >Lİsteye geri dön</Link>
-    <div>
-      <img src={product.image} alt={product.name} />
+    <div className="product-detail-container"  style={{padding:"40px"}} >
+      <Link to={"/"} style={{display:"block", marginBottom:"20px"}} >Lİsteye geri dön</Link>
+    <div style={{display:"flex" , gap:"40px" , alignItems:"start" }} >
+      <img src={product.image} alt={product.name} style={{width:"400px", borderRadius:"10px"}}  />
      <div className="detail-info">
-      <span>{product.category}</span>
-      <h1>{product.name}</h1>
-      <p>{product.price.toLocaleString()}TL </p>
+      <span style={{textTransform:"uppercase", color:"#888"}} >{product.category}</span>
+      <h1 style={{fontSize:"40px", margin:"10px 0 "}} >{product.name}</h1>
+      <p style={{fontSize:"24px" , fontWeight:"bold", color:"#2c3e50"}} >{product.price.toLocaleString()}TL </p>
        
-       <div>
+       <div style={{
+         padding:"10px",
+         backgroundColor:product.inStock ?"#e6fffa" : "#fff5f5",
+         color:product.inStock ? "#2a9c2a" : "#c53030",
+         borderRadius:"5px",
+         marginTop:"10px"
+       }} >
         {product.inStock? "stokta var":"tükendi"}
        </div>
 
